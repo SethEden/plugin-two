@@ -40,3 +40,7 @@ async function initBusinessRules() {
   // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
+
+export default {
+  initBusinessRules
+};

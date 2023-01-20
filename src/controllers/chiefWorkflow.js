@@ -36,4 +36,12 @@ async function setupWorkflows(pluginWorkflowsPath) {
   // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   // console.log(`pluginWorkflowsPath is: ${pluginWorkflowsPath}`);
   let returnData = {};
+  returnData = await chiefData.loadWorkflowsData(pluginWorkflowsPath);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
 }
+
+export default {
+  setupWorkflows
+};
