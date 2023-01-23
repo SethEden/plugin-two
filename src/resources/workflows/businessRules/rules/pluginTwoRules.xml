@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><PluginWorkflows>
+  <debug>
+    <businessRules>
+      <rules>
+        <pluginTwoRules>
+          <Workflow Name="pluginTwoRulesEnable" Value="changeConfigSetting debugSetting.plugins.plugin-two.businessRules.rules.pluginTwoRules true"/>
+          <Workflow Name="pluginTwoRulesDisable" Value="changeConfigSetting debugSetting.plugins.plugin-two.businessRules.rules.pluginTwoRules false"/>
+          <Workflow Name="pluginTwoRule01Enable" Value="changeConfigSetting debugSetting.plugins.plugin-two.businessRules.rules.pluginTwoRules.pluginTwoRule01 true"/>
+          <Workflow Name="pluginTwoRule01Disable" Value="changeConfigSetting debugSetting.plugins.plugin-two.businessRules.rules.pluginTwoRules.pluginTwoRule01 false"/>
+          <Workflow Name="pluginTwoRule02Enable" Value="changeConfigSetting debugSetting.plugins.plugin-two.businessRules.rules.pluginTwoRules.pluginTwoRule02 true"/>
+          <Workflow Name="pluginTwoRule02Disable" Value="changeConfigSetting debugSetting.plugins.plugin-two.businessRules.rules.pluginTwoRules.pluginTwoRule02 false"/>
+        </pluginTwoRules>
+      </rules>
+    </businessRules>
+  </debug>
+</PluginWorkflows>

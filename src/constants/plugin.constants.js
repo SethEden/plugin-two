@@ -26,7 +26,7 @@ export const cWorkflowsCommonPath = wrd.cworkflows + bas.cForwardSlash; // workf
 export const cFullDevResourcesPath = cPluginDevPath + cResourcesCommonPath; // /src/resources/
 export const cFullDevCommandsPath = cFullDevResourcesPath + cCommandsCommonPath; // /src/resources/commands/
 export const cFullDevConstantsPath = cPluginDevPath + cConstantsPath; // /src/constants/
-export const cFullDvConfigurationPath = cFullDevResourcesPath + cConfigurationCommonPath; // /src/resources/configuration/
+export const cFullDevConfigurationPath = cFullDevResourcesPath + cConfigurationCommonPath; // /src/resources/configuration/
 export const cFullDevWorkflowsPath = cFullDevResourcesPath + cWorkflowsCommonPath; // /src/resources/workflows/
 export const cmetaDataDevPath = cFullDevResourcesPath + sys.cmetaDatadotJson; // /src/resources/metaData.json
 
