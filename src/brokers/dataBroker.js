@@ -28,7 +28,7 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
 /**
  * @function initData
  * @description Initialize the data that will be used by
- * the plugin to load al of the plugin context and export it to the Haystacks platform.
+ * the plugin to load all of the plugin context and export it to the Haystacks platform.
  * @return {void}
  * @author Seth Hollingsead
  * @date 2023/01/13
@@ -42,7 +42,7 @@ async function initData() {
 
 /**
  * @function loadConfigPath
- * @description Calls the Haystacks platform to load the configuration data, parse it and return it as a JSON objet.
+ * @description Calls the Haystacks platform to load the configuration data, parse it and return it as a JSON object.
  * @param {string} configPath The path to the plugin configuration data that must be loaded.
  * @return {object} A JSON object that contains all of the configuration data loaded and parsed from the specified path.
  * @author Seth Hollingsead
@@ -54,14 +54,15 @@ async function loadConfigData(configPath) {
   // console.log(`configPath is: ${configPath}`);
   let returnData = {};
   // NOTE: This is the first call back to Haystacks to load data,
-  // We will need to pass the Haystacks data back nto this instance of Haystacks before we try to call it to get it to do any kind of work.
+  // We will need to pass the Haystacks data back into this instance of Haystacks before we try to call it to get it to do any kind of work.
   if (await haystacks.accouterFramework(D[wrd.cdata][cfg.chaystacksContextObject]) === true) {
     // console.log('Done loading the Haystacks dependency data, now try and use Haystacks to load the config data, from the configPath.');
-    returnData = await haystacks.loadPlugnResourceData(wrd.cconfiguration, configPath);
+    returnData = await haystacks.loadPluginResourceData(wrd.cconfiguration, configPath);
   } else {
-    // FATAL ERROR: Unable to oad the specified plugn config path, Haystacks framework data dependency failure:
+    // FATAL ERROR: Unable to load the specified plugin config path, Haystacks framework data dependency failure:
     console.log(msg.cloadConfigDataErrorMessage01 + configPath);
   }
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
   // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
@@ -80,7 +81,7 @@ async function loadCommandAliasesData(aliasesPath) {
   // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   // console.log(`aliasesPath is: ${aliasesPath}`);
   let returnData = {};
-  returnData = await haystacks.loadPlugnResourceData(wrd.ccommand + wrd.cAliases, aliasesPath);
+  returnData = await haystacks.loadPluginResourceData(wrd.ccommand + wrd.cAliases, aliasesPath);
   // console.log(`returnData is: ${JSON.stringify(returnData)}`);
   // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
@@ -100,7 +101,7 @@ async function loadWorkflowsData(workflowsPath) {
   // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   // console.log(`workflowsPath is: ${workflowsPath}`);
   let returnData = {};
-  returnData = await haystacks.loadPlugnResourceData(wrd.cworkfows, workflowsPath);
+  returnData = await haystacks.loadPluginResourceData(wrd.cworkflows, workflowsPath);
   // console.log(`returnData is: ${JSON.stringify(returnData)}`);
   // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
@@ -111,4 +112,4 @@ export default {
   loadConfigData,
   loadCommandAliasesData,
   loadWorkflowsData
-}
+};

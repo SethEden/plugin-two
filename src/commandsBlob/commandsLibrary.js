@@ -16,7 +16,7 @@
 // Internal imports
 import pluginTwoCommands from './commands/pluginTwoCommands.js';
 import * as plg_cmd from '../constants/plugin.command.constants.js';
-import * as plg from '../constants/plgin.constants.js';
+import * as plg from '../constants/plugin.constants.js';
 import D from '../structures/pluginData.js';
 // External imports
 import hayConst from '@haystacks/constants';
@@ -29,13 +29,13 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + s
 
 /**
  * @function initPluginCommandsLibrary
- * @description Initializes an object map of plugin commands and plugn function calls and returns them.
- * @return {object} A JSON objct that contains an array of function objects that map function name to function call for all of the commands.
+ * @description Initializes an object map of plugin commands and plugin function calls and returns them.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all of the commands.
  * @author Seth Hollingsead
  * @date 2023/01/16
  * @NOTE Please be aware that the Commands and BusinessRules data fields in the
  * D-data structure are going to display as empty when printing out the D-data structure even when using JSON.stringify().
- * This is because the functions cannot really be serialized n any way. It actually kind of makes sense,
+ * This is because the functions cannot really be serialized in any way. It actually kind of makes sense,
  * but could be really confusing if you are struggling, trying to debug commands or business rules that do not appear to exist.
  */
 const initPluginCommandLibrary = function() {
@@ -61,4 +61,4 @@ const initPluginCommandLibrary = function() {
 
 export default {
   initPluginCommandLibrary
-}
+};

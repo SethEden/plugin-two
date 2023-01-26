@@ -1,7 +1,7 @@
 /**
  * @file commandBroker.js
  * @module commandBroker
- * @description Contaisn all of the functions necessary to bootStrap the commands for the plugin.
+ * @description Contains all of the functions necessary to bootStrap the commands for the plugin.
  * @requires module:commandLibrary
  * @requires module:plugin.constants
  * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
@@ -22,15 +22,15 @@ import path from 'path';
 const {bas, msg, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // plugins.plugin-two.brokers.commandBroker.
-const namespacePrefix = wrd.cplugns + bas.cDot + plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + baseFileName + bas.cDot;
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.cbrokers + bas.cDot + baseFileName + bas.cDot;
 
 /**
  * @function bootStrapCommands
  * @description Captures all of the commands functions string-to-function call map data in
  * the rulesLibrary and migrates that data to the D-data structure.
- * This is important now, because tis data structure is how the plugin functionality will be
+ * This is important now, because this data structure is how the plugin functionality will be
  * imported and subsequently executed by the Haystacks platform and its host application.
- * @return {object} An object that contains an array of function objects that map function name to function call for all of the commands.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all of the commands.
  * @author Seth Hollingsead
  * @date 2023/01/13
  */
@@ -39,8 +39,8 @@ async function bootStrapCommands() {
   // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   let returnData = {};
   returnData = await commands.initPluginCommandLibrary();
-  console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

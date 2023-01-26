@@ -1,5 +1,5 @@
 /**
- * @file plugn.business.constants.js
+ * @file plugin.business.constants.js
  * @module plugin.business.constants
  * @description A file to hold all of the plugin business rules constants.
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}

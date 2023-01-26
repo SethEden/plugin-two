@@ -30,7 +30,7 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * the rulesLibrary and migrates that data to the D-data structure.
  * This is important now, because this data structure is how the plugin functionality will be
  * imported and subsequently executed by the Haystacks platform.
- * @return {object} An object that contains an array of function objects that map function name to function cal for all the business rules.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all the business rules.
  * @author Seth Hollingsead
  * @date 2023/01/13
  */

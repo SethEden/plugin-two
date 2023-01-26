@@ -47,15 +47,15 @@ const {NODE_ENV} = process.env;
 // Basically the plugin instance of Haystacks is a dumb idiot and cannot be used to do anything.
 // There are 2 possible solutions that I can think of to solve this conundrum.
 
-// #1: Add a data parameter to the function below: initializePlugin that allows for the application instance of Haystacks, when it calls this functino to load this plugin,
-// and allow that isntance of Haystacks to pass its data context to this plugin.
+// #1: Add a data parameter to the function below: initializePlugin that allows for the application instance of Haystacks, when it calls this function to load this plugin,
+// and allow that instance of Haystacks to pass its data context to this plugin.
 // Then this plugin will store that data context in it's own (the plugins) data structure declared above as "D".
 // Then once the plugin creates the new Haystacks instance, the data context stored on the plugins "D", can be passed back to the plugins instance of Haystacks.
-// This is theory should give the plugin instance of Haystacks the intelligence needed to act in exactly the same way that the appication instance of Haystacks works.
+// This in theory should give the plugin instance of Haystacks the intelligence needed to act in exactly the same way that the application instance of Haystacks works.
 
 // #2: In the host application, immediately after creating the instance of Haystacks, that instance object could be stored in the appConfig object that is then passed along to the Haystacks bootStrapper.
 // Then the instance object of Haystacks could be stored in the Haystacks "D" as a context object.
-// Then when the Haystacks makes calls to load each plugin by calling their initializePlugin function as written below, that context objectcould be passed along as input to this function.
+// Then when the Haystacks makes calls to load each plugin by calling their initializePlugin function as written below, that context object could be passed along as input to this function.
 // The plugin would initialize the instance of Haystacks for the plugin by capturing the stored instance of Haystacks and storing it in the plugins "D" so that call-backs
 // can be made directly to a single instance of Haystacks.
 // In theory this should make the application instance of Haystacks and the plugin instance of Haystacks to be exactly the same instance,
@@ -66,8 +66,8 @@ const {NODE_ENV} = process.env;
 // My inclination is that solution #2 is the idealized approach.
 
 // Solution #2 appears that it will be the ideal solution, now lets test it!!
-// Well turns ut it is not possible to re-assign a module as an object once it has een imported.
-// The the only remaining solution is #1.
+// Well turns out it is not possible to re-assign a module as an object once it has been imported.
+// The only remaining solution is #1.
 // FINALLY: YES!! Solution #1 is the way to solve this problem and got it working correctly.
 // HOWEVER, 1 problem still remains. The user must still clone the Haystacks/async repo locally, then link it to their application and to all their plugins as well.
 // I'll need to work to understand why this is.
@@ -78,7 +78,7 @@ const {NODE_ENV} = process.env;
  * Haystacks platform so it can be used at run-time to provide enhanced
  * capabilities to the application that loads this plugin.
  * @param {object} inputMetaData A JSON object that contains meta-data needed by the plugin.
- * In particular this contains a Haystacks context data object that can be used to to inject into a new instance of Haystacks,
+ * In particular this contains a Haystacks context data object that can be used to inject into a new instance of Haystacks,
  * such that the new instance of Haystacks will act and behave exactly like the host application instance of Haystacks.
  * Including being able to make calls back to Haystacks, for the purpose of loading and parsing files, or any number of other operations that need to be done.
  * @return {object} A JSON object that contains all of the data that the plugin
@@ -93,7 +93,7 @@ async function initializePlugin(inputMetaData) {
   rootPath = url.fileURLToPath(path.dirname(import.meta.url));
   let rootPathArray = rootPath.split(bas.cBackSlash);
   rootPathArray.pop(); // remove any bin or src folder from the path.
-  rootPath = rotPathArray.join(bas.cBackSlash);
+  rootPath = rootPathArray.join(bas.cBackSlash);
   // console.log('rootPath is: ' + rootPath);
   let pluginConfig = {};
   if (NODE_ENV === wrd.cdevelopment) {

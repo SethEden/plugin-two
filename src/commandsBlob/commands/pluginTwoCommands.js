@@ -19,7 +19,7 @@ import hayConst from '@haystacks/constants';
 import path from 'path';
 
 const {bas, msg, num, sys, wrd} = hayConst;
-const baseFileName = path.basename(import.meta.url, path.extname(impot.meta.url));
+const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // plugins.plugin-two.commandsBlob.commands.pluginTwoCommands.
 const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + sys.ccommandsBlob + bas.cDot +
   wrd.ccommands + bas.cDot + baseFileName + bas.cDot;
@@ -71,7 +71,7 @@ async function pluginTwoCommand02(inputData, inputMetaData) {
   // console.log(`inputData is: ${inputData}`);
   // console.log(`inputMetaData is: ${inputMetaData}`);
   let returnData = '';
-  returnData = wrd.cplugin + Number.cTwo + wrd.cCommand + num.c02;
+  returnData = wrd.cplugin + num.cTwo + wrd.cCommand + num.c02;
   console.log(namespacePrefix + returnData);
   await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + returnData);
   await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
@@ -83,31 +83,4 @@ async function pluginTwoCommand02(inputData, inputMetaData) {
 export default {
   pluginTwoCommand01,
   pluginTwoCommand02
-}
-
-/**
- * @function e2eTestCommand
- * @description This command is used to execute an End-to-end test against the specific business application.
- * See the test data for each test that is run to determine test workflows, test steps, test inputData and test assertion data.
- * @param {array<string,string>} inputData An array that contans the name of the command beng executed and the
- * fully qualified path and filename for the end-to-end test that should be run.
- * inputData[0] = The name of the current command being executed.
- * inputData[1] = The fully qualified path to the End-to-End test that should be run.
- * @param {string} inputMetaData Not used for this command.
- * @return {array<boolean,string|integer|boolean|object|array>} An array with a boolean True or False value to
- * indicate if the application should exit or not exit, followed by the command output.
- * @author Seth Hollingsead
- * @date 2023/01/17
- */
-async function e2eTestCommand(inputData, inputMetaData) {
-  let functionName = e2eTestCommand.name;
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cBEGIN_Function);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + JSON.stringify(inputData));
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
-  let returnData = [false, false];
-  returnData = haystacks.enqueueCommand(cmd.cHayDCAF_E2E_Test + bas.cSpace + inputData[1]);
-  console.log(returnData[1]);
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.creturnDataIs + JSON.stringify(returnData));
-  await haystacks.consoleLog(namespacePrefix, functionName, msg.cEND_Function);
-  return returnData;
-}
+};

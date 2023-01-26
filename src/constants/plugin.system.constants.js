@@ -5,6 +5,7 @@
  * So none of the constants in this file should be generic/framework constants.
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @author Seth Hollingsead
+ * @date 2023/01/20
  * @copyright Copyright © 2022-… by Seth Hollingsead. All rights reserved
  */
 

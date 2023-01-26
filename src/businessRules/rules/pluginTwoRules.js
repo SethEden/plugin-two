@@ -27,10 +27,10 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + s
 /**
  * @function pluginTwoRule01
  * @description Outputs pluginTwoRule01,
- * to verify that the busness rule has been loaded when the plugin was loaded.
+ * to verify that the business rule has been loaded when the plugin was loaded.
  * @param {string} inputData Not used for this business rule.
  * @param {string} inputMetaData Not used for this business rule.
- * @return {string} Teh string "pluginTwoRules.pluginTwoRule01".
+ * @return {string} The string "pluginTwoRules.pluginTwoRule01".
  * @author Seth Hollingsead
  * @date 2023/01/16
  */
@@ -83,4 +83,4 @@ async function pluginTwoRule02(inputData, inputMetaData) {
 export default {
   pluginTwoRule01,
   pluginTwoRule02
-}
+};

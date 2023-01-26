@@ -1,7 +1,7 @@
 /**
  * @file rulesLibrary.js
  * @module rulesLibrary
- * @description Contains all of the plugin defined busness rules as a map between function names and function calls.
+ * @description Contains all of the plugin defined business rules as a map between function names and function calls.
  * @requires module:pluginTwoRules
  * @requires module:plugin.business.constants
  * @requires module:plugin.constants
@@ -36,8 +36,8 @@ const initPluginRulesLibrary = function() {
     // ***********************************************************************
     // BEGIN pluginTwo category
     // ***********************************************************************
-    [plg_biz.cpluginTwoRule01]: (inputData, inputMetaData) => pluginTwoRules.plugnTwoRule01(inputData, inputMetaData),
-    [plg_biz.cpluginTwoRule02]: (inputData, inputMetaData) => pluginTwoRules.plugnTwoRule02(inputData, inputMetaData),
+    [plg_biz.cpluginTwoRule01]: (inputData, inputMetaData) => pluginTwoRules.pluginTwoRule01(inputData, inputMetaData),
+    [plg_biz.cpluginTwoRule02]: (inputData, inputMetaData) => pluginTwoRules.pluginTwoRule02(inputData, inputMetaData),
     // ***********************************************************************
     // END pluginTwo category
     // ***********************************************************************
@@ -49,4 +49,4 @@ const initPluginRulesLibrary = function() {
 
 export default {
   initPluginRulesLibrary
-}
+};
