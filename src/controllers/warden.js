@@ -30,14 +30,14 @@ import path from 'path';
 
 const {bas, cfg, msg, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// plugns.plugin-two.brokers.ruleBroker.
+// plugins.plugin-two.brokers.ruleBroker.
 const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
 
 /**
  * @function initPluginRules
  * @description This is a wrapper call for chiefRules.initBusinessRules.
  * @return {object} A JSON object that contains an array of function objects that map function name to function call for all the business rules.
- * @author Seth Hollignsead
+ * @author Seth Hollingsead
  * @date 2023/01/20
  */
 async function initPluginRules() {
@@ -70,8 +70,8 @@ async function initPluginCommands() {
 /**
  * @function initPluginSchema
  * @description Setup all of the plugin data and configuration settings.
- * @param {object} configData All of the configuration data and paths that should be pared as part of the setup process.
- * @return {object} All of the plugin data that should be returned to the rest of the framework.
+ * @param {object} configData All of the configuration data and paths that should be parsed as part of the setup process.
+ * @return {object} All of the plugin data that should be returned to the rest of the Haystacks platform.
  * @author Seth Hollingsead
  * @date 2023/01/20
  */
@@ -88,7 +88,7 @@ async function initPluginSchema(configData) {
   // console.log('pluginCommandAliasesPath is: ' + JSON.stringify(pluginCommandAliasesPath));
   // console.log('pluginWorkflowsPath is: ' + JSON.stringify(pluginWorkflowsPath));
 
-  // Lod the configuration data for the plugin.
+  // Load the configuration data for the plugin.
   let pluginConfigData = await chiefConfiguration.setupConfiguration(pluginConfigPath);
   // console.log('pluginConfigData is: ' + JSON.stringify(pluginConfigData));
   D[wrd.cdata][wrd.cconfiguration] = {};

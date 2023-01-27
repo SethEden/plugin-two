@@ -13,7 +13,7 @@ import * as plg_biz from '../../constants/plugin.business.constants.js';
 
 /**
  * @function pluginBusinessConstantsValidation
- * @description Initializes the plugin business rules constants vaidation data objects array.
+ * @description Initializes the plugin business rules constants validation data objects array.
  * @return {array<object<Name,Actual,Expected>>} An array of constants validation data objects.
  * @author Seth Hollingsead
  * @date 2023/01/23

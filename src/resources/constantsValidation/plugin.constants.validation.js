@@ -12,7 +12,7 @@
 import * as plg from '../../constants/plugin.constants.js';
 
 /**
- * @function pluginConstantsValication
+ * @function pluginConstantsValidation
  * @description Initializes the plugin constants validation data objects array.
  * @return {array<object<Name,Actual,Expected>>} An array of constants validation data objects.
  * @author Seth Hollingsead

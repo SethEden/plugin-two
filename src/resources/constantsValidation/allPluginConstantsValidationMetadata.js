@@ -1,7 +1,7 @@
 /**
  * @file allPluginConstantsValidationMetadata.js
  * @module allPluginConstantsValidationMetadata
- * @description Contains al validation data for all plugin constants.
+ * @description Contains all validation data for all plugin constants.
  * @requires module:plugin.business.constants
  * @requires module:plugin.command.constants
  * @requires module:plugin.constants
@@ -30,21 +30,20 @@ import * as plg_cmd_cv from './plugin.command.constants.validation.js';
 import * as plg_cv from './plugin.constants.validation.js';
 import * as plg_msg_cv from './plugin.message.constants.validation.js';
 import * as plg_sys_cv from './plugin.system.constants.validation.js';
-
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
 const {bas, cfg, gen, msg, sys, wrd} = hayConst;
-let baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
+const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
 // plugins.plugin-two.resources.constantsValidation.allPluginConstantsValidationMetadata.
-let namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.cresources + bas.cDot + wrd.cconstants + wrd.cValidation + bas.cDot + baseFileName + bas.cDot;
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.cresources + bas.cDot + wrd.cconstants + wrd.cValidation + bas.cDot + baseFileName + bas.cDot;
 
 /**
  * @function initializeAllPluginConstantsValidationData
  * @description Initializes all of the plugin constants validation data so that it can be used to validate all of the constants.
  * @param {string} pluginConstantsPath The path to the plugin constants folder.
- * @return {object} A JSON object that contains all of the data and metaData fro plugin level constants validation.
+ * @return {object} A JSON object that contains all of the data and metaData for plugin level constants validation.
  * @author Seth Hollingsead
  * @date 2023/01/23
  */
@@ -71,8 +70,8 @@ async function initializeAllPluginConstantsValidationData(pluginConstantsPath) {
   allPluginConstantsValidationData[sys.cConstantsValidationData][plg_sys.cpluginBusinessConstantsValidation] = plg_biz_cv.pluginBusinessConstantsValidation;
   allPluginConstantsValidationData[sys.cConstantsValidationData][plg_sys.cpluginCommandConstantsValidation] = plg_cmd_cv.pluginCommandConstantsValidation;
   allPluginConstantsValidationData[sys.cConstantsValidationData][plg_sys.cpluginConstantsValidation] = plg_cv.pluginConstantsValidation;
-  allPluginConstantsValidationData[sys.cConstantsValidationData][plg_sys.cplguinMessageConstantsValidation] = plg_msg_cv.pluginMessageConstantsValidation;
-  allPluginConstantsValidationData[sys.cConstantsValidationData][plg_sys.cplguinSystemConstantsValidation] = plg_sys_cv.pluginSsytemConstantsValidation;
+  allPluginConstantsValidationData[sys.cConstantsValidationData][plg_sys.cpluginMessageConstantsValidation] = plg_msg_cv.pluginMessageConstantsValidation;
+  allPluginConstantsValidationData[sys.cConstantsValidationData][plg_sys.cpluginSystemConstantsValidation] = plg_sys_cv.pluginSystemConstantsValidation;
 
   // Setup all the paths to the constants files.
   let resolvedConstantsPath_PluginBusiness = path.resolve(pluginConstantsPath + bas.cForwardSlash + plg_sys.cplugin_business_constants_js);

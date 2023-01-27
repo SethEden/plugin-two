@@ -81,9 +81,9 @@ async function loadCommandAliasesData(aliasesPath) {
 /**
  * @function loadWorkflowsData
  * @description Loads the plugin workflows data by calling the Haystacks to
- * load and pare the data from the specified path.
+ * load and parse the data from the specified path.
  * @param {string} workflowsPath The fully qualified path to the workflows folder with all of the workflows data for the plugin.
- * @return {object} A JSON objct that contains all of the workflows data loaded and parsed from the specified path.
+ * @return {object} A JSON object that contains all of the workflows data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2023/01/20 
  */
@@ -103,4 +103,4 @@ export default {
   loadConfigurationData,
   loadCommandAliasesData,
   loadWorkflowsData
-}
+};

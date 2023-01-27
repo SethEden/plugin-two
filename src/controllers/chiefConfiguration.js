@@ -32,7 +32,7 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2023/01/20
  */
 async function setupConfiguration(pluginConfigPath) {
-  let functionName = setupConfiguration.name;
+  // let functionName = setupConfiguration.name;
   // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
   // console.log(`pluginConfigPath is: ${pluginConfigPath}`);
   let returnData = {};

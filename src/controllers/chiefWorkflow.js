@@ -1,5 +1,5 @@
 /**
- * @file chiefWorkflow
+ * @file chiefWorkflow.js
  * @module chiefWorkflow
  * @description Contains all of the top-level functions to manage the workflows for the plugin.
  * @requires module:plugin.constants
@@ -26,7 +26,7 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
 /**
  * @function setupWorkflows
  * @description Sets up all the plugin workflows data.
- * @param {string} pluginWorkflowsPath Teh path of the workflows files for the plugin layer.
+ * @param {string} pluginWorkflowsPath The path of the workflows files for the plugin layer.
  * @return {object} A JSON object that contains all of the workflows data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2023/01/20
