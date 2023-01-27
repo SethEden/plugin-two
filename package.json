@@ -1,0 +1,30 @@
+{
+  "name": "plugin-two",
+  "version": "0.0.1",
+  "description": "A second prototype plugin implementation for testing advanced plugin features of the haystacks platform.",
+  "main": "./src/main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SethEden/PluginTwo.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Plugin",
+    "Haystacks"
+  ],
+  "author": "Seth Hollingsead",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SethEden/PluginTwo/issues"
+  },
+  "homepage": "https://github.com/SethEden/PluginTwo#readme",
+  "dependencies": {
+    "@haystacks/async": "0.1.8",
+    "@haystacks/constants": "0.1.7",
+    "dotenv": "^16.0.0"
+  }
+}

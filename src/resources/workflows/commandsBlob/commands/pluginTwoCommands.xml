@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><PluginWorkflows>
+  <debug>
+    <commandsBlob>
+      <commands>
+        <pluginTwoCommands>
+          <Workflow Name="pluginTwoCommandsEnable" Value="changeConfigSetting debugSetting.plugins.plugin-two.commandsBlob.commands.pluginTwoCommands true"/>
+          <Workflow Name="pluginTwoCommandsDisable" Value="changeConfigSetting debugSetting.plugins.plugin-two.commandsBlob.commands.pluginTwoCommands false"/>
+          <Workflow Name="pluginTwoCommand01Enable" Value="changeConfigSetting debugSetting.plugins.plugin-two.commandsBlob.commands.pluginTwoCommands.pluginTwoCommand01 true"/>
+          <Workflow Name="pluginTwoCommand01Disable" Value="changeConfigSetting debugSetting.plugins.plugin-two.commandsBlob.commands.pluginTwoCommands.pluginTwoCommand01 false"/>
+          <Workflow Name="pluginTwoCommand02Enable" Value="changeConfigSetting debugSetting.plugins.plugin-two.commandsBlob.commands.pluginTwoCommands.pluginTwoCommand02 true"/>
+          <Workflow Name="pluginTwoCommand02Disable" Value="changeConfigSetting debugSetting.plugins.plugin-two.commandsBlob.commands.pluginTwoCommands.pluginTwoCommand02 false"/>
+        </pluginTwoCommands>
+      </commands>
+    </commandsBlob>
+  </debug>
+</PluginWorkflows>
