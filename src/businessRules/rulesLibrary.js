@@ -26,6 +26,17 @@ const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url
 // plugins.plugin-two.businessRules.rulesLibrary
 const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cDot + baseFileName + bas.cDot;
 
+/**
+ * @function initPluginRulesLibrary
+ * @description Initializes an object map of plugin business rule and plugin function calls and returns them.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all of the business rules.
+ * @author Seth Hollingsead
+ * @date 2023/01/16
+ * @NOTE Please be aware that the Commands and BusinessRules data fields in the
+ * D-data structure are going to display as empty when printing out the D-data structure even when using JSON.stringify().
+ * This is because the functions cannot really be serialized in any way. It actually kind of makes sense,
+ * but could be really confusing if you are struggling, trying to debug commands or business rules that do not appear to exist.
+ */
 const initPluginRulesLibrary = function() {
   // let functionName = initPluginRulesLibrary.name;
   // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
