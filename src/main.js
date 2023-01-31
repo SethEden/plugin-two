@@ -152,7 +152,7 @@ async function initializePlugin(inputMetaData) {
   await warden.initPluginSchema(pluginConfig);
   let returnData = D; // Export all of the plugin data.
   // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
   return returnData;
 }
 

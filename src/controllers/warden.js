@@ -105,7 +105,7 @@ async function initPluginSchema(configData) {
   // console.log('pluginWorkflowsData is: ' + JSON.stringify(pluginWorkflowsData));
   D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = {};
   D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = pluginWorkflowsData;
-  console.log('contents of D are: ' + JSON.stringify(D));
+  // console.log('contents of D are: ' + JSON.stringify(D));
   // console.log(`END ${namespacePrefix}${functionName} function`);
 }
 

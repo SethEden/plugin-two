@@ -11,6 +11,7 @@
 // Internal imports
 import * as plg_sys from './plugin.system.constants.js';
 // External imports
+import hayConst from '@haystacks/constants';
 const {bas, msg, num, sys, wrd} = hayConst;
 
 // Plugin message constants
