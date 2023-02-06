@@ -8,6 +8,7 @@
  * @requires module:chiefConfiguration
  * @requires module:chiefData
  * @requires module:chiefRules
+ * @requires module:chiefTheme
  * @requires module:chiefWorkflow
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
@@ -22,6 +23,7 @@ import chiefCommander from './chiefCommander.js';
 import chiefConfiguration from './chiefConfiguration.js';
 import chiefData from './chiefData.js';
 import chiefRules from './chiefRules.js';
+import chiefTheme from './chiefTheme.js'
 import chiefWorkflow from './chiefWorkflow.js';
 import D from '../structures/pluginData.js';
 // External imports
@@ -84,9 +86,11 @@ async function initPluginSchema(configData) {
   let pluginConfigPath = configData[cfg.cpluginConfigReferencePath];
   let pluginCommandAliasesPath = configData[cfg.cpluginCommandAliasesPath];
   let pluginWorkflowsPath = configData[cfg.cpluginWorkflowsPath];
-  // console.log('pluginConfigPath is: ' + JSON.stringify(pluginConfigPath));
-  // console.log('pluginCommandAliasesPath is: ' + JSON.stringify(pluginCommandAliasesPath));
-  // console.log('pluginWorkflowsPath is: ' + JSON.stringify(pluginWorkflowsPath));
+  let pluginThemesPath = configData[cfg.cpluginThemesPath];
+  // console.log('pluginConfigPath is: ' + pluginConfigPath);
+  // console.log('pluginCommandAliasesPath is: ' + pluginCommandAliasesPath);
+  // console.log('pluginWorkflowsPath is: ' + pluginWorkflowsPath);
+  // console.log('pluginThemesPath is: ' + pluginThemesPath);
 
   // Load the configuration data for the plugin.
   let pluginConfigData = await chiefConfiguration.setupConfiguration(pluginConfigPath);
@@ -105,6 +109,12 @@ async function initPluginSchema(configData) {
   // console.log('pluginWorkflowsData is: ' + JSON.stringify(pluginWorkflowsData));
   D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = {};
   D[wrd.cdata][wrd.cCommand + wrd.cWorkflows] = pluginWorkflowsData;
+
+  // Load the themes data for the plugin.
+  let pluginThemesData = await chiefTheme.setupThemes(pluginThemesPath);
+  // console.log('pluginThemesData is: ' + JSON.stringify(pluginThemesData));
+  D[wrd.cdata][wrd.cThemes] = {};
+  D[wrd.cdata][wrd.cThemes] = pluginThemesData;
   // console.log('contents of D are: ' + JSON.stringify(D));
   // console.log(`END ${namespacePrefix}${functionName} function`);
 }
