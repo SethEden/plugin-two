@@ -33,7 +33,7 @@ export const cFullDevThemesPath = cFullDevResourcesPath + cThemesCommonPath; // 
 export const cmetaDataDevPath = cFullDevResourcesPath + sys.cmetaDatadotJson; // /src/resources/metaData.json
 
 // Full Prod paths
-export const cFullProdResourcesPath = cPluginProdPath + cResourcesCommonPath; // /bn/resources/
+export const cFullProdResourcesPath = cPluginProdPath + cResourcesCommonPath; // /bin/resources/
 export const cFullProdCommandsPath = cFullProdResourcesPath + cCommandsCommonPath; // /bin/resources/commands/
 export const cFullProdConstantsPath = cPluginProdPath + cConstantsPath; // /bin/constants/
 export const cFullProdConfigurationPath = cFullProdResourcesPath + cConfigurationCommonPath; // /bin/resources/configuration/

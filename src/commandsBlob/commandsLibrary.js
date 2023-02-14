@@ -5,6 +5,7 @@
  * @requires module:pluginTwoCommands
  * @requires module:plugin.command.constants
  * @requires module:plugin.constants
+ * @requires module:loggers
  * @requires module:pluginData
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
@@ -17,6 +18,7 @@
 import pluginTwoCommands from './commands/pluginTwoCommands.js';
 import * as plg_cmd from '../constants/plugin.command.constants.js';
 import * as plg from '../constants/plugin.constants.js';
+import loggers from '../executrix/loggers.js';
 import D from '../structures/pluginData.js';
 // External imports
 import hayConst from '@haystacks/constants';
@@ -38,9 +40,9 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + s
  * This is because the functions cannot really be serialized in any way. It actually kind of makes sense,
  * but could be really confusing if you are struggling, trying to debug commands or business rules that do not appear to exist.
  */
-const initPluginCommandLibrary = function() {
-  // let functionName = initPluginCommandLibrary.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+async function initPluginCommandsLibrary() {
+  let functionName = initPluginCommandsLibrary.name;
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
   returnData[wrd.ccommands] = {};
   returnData[wrd.ccommands] = {
@@ -54,11 +56,11 @@ const initPluginCommandLibrary = function() {
     // END pluginTwo category
     // ***********************************************************************
   };
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
 export default {
-  initPluginCommandLibrary
+  initPluginCommandsLibrary
 };

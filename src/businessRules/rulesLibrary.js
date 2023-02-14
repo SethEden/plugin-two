@@ -5,6 +5,7 @@
  * @requires module:pluginTwoRules
  * @requires module:plugin.business.constants
  * @requires module:plugin.constants
+ * @requires module:loggers
  * @requires module:pluginData
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
@@ -17,6 +18,8 @@
 import pluginTwoRules from './rules/pluginTwoRules.js';
 import * as plg_biz from '../constants/plugin.business.constants.js';
 import * as plg from '../constants/plugin.constants.js';
+import loggers from '../executrix/loggers.js';
+import D from '../structures/pluginData.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
@@ -37,9 +40,9 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + s
  * This is because the functions cannot really be serialized in any way. It actually kind of makes sense,
  * but could be really confusing if you are struggling, trying to debug commands or business rules that do not appear to exist.
  */
-const initPluginRulesLibrary = function() {
-  // let functionName = initPluginRulesLibrary.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+async function initPluginRulesLibrary() {
+  let functionName = initPluginRulesLibrary.name;
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
   returnData[sys.cbusinessRules] = {};
   returnData[sys.cbusinessRules] = {
@@ -53,8 +56,8 @@ const initPluginRulesLibrary = function() {
     // END pluginTwo category
     // ***********************************************************************
   };
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

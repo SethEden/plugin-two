@@ -7,6 +7,7 @@
  * @requires module:plugin.constants
  * @requires module:plugin.message.constants
  * @requires module:plugin.system.constants
+ * @requires module:loggers
  * @requires module:plugin.business.constants.validation
  * @requires module:plugin.command.constants.validation
  * @requires module:plugin.constants.validation
@@ -25,6 +26,7 @@ import * as plg_cmd from '../../constants/plugin.command.constants.js';
 import * as plg from '../../constants/plugin.constants.js';
 import * as plg_msg from '../../constants/plugin.message.constants.js';
 import * as plg_sys from '../../constants/plugin.system.constants.js';
+import loggers from '../../executrix/loggers.js';
 import * as plg_biz_cv from './plugin.business.constants.validation.js';
 import * as plg_cmd_cv from './plugin.command.constants.validation.js';
 import * as plg_cv from './plugin.constants.validation.js';
@@ -48,10 +50,10 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2023/01/23
  */
 async function initializeAllPluginConstantsValidationData(pluginConstantsPath) {
-  // let functionName = initializeAllPluginConstantsValidationData.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let functionName = initializeAllPluginConstantsValidationData.name;
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   // pluginConstantsPath is:
-  // console.log(plg_msg.cpluginConstantsPathIs + pluginConstantsPath);
+  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cpluginConstantsPathIs + pluginConstantsPath);
 
   let allPluginConstantsValidationData = {};
   allPluginConstantsValidationData[sys.cConstantsValidationData] = {};
@@ -81,15 +83,15 @@ async function initializeAllPluginConstantsValidationData(pluginConstantsPath) {
   let resolvedConstantsPath_PluginSystem = path.resolve(pluginConstantsPath + bas.cForwardSlash + plg_sys.cplugin_system_constants_js);
 
   // resolvedConstantsPath_PluginBusiness
-  // console.log(plg_msg.cresolvedConstantsPath_PluginBusinessIs + resolvedConstantsPath_PluginBusiness);
+  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginBusinessIs + resolvedConstantsPath_PluginBusiness);
   // resolvedConstantsPath_PluginCommand
-  // console.log(plg_msg.cresolvedConstantsPath_PluginCommandIs + resolvedConstantsPath_PluginCommand);
+  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginCommandIs + resolvedConstantsPath_PluginCommand);
   // resolvedConstantsPath_PluginConstant
-  // console.log(plg_msg.cresolvedConstantsPath_PluginConstantIs + resolvedConstantsPath_PluginConstant);
+  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginConstantIs + resolvedConstantsPath_PluginConstant);
   // resolvedConstantsPath_PluginMessage
-  // console.log(plg_msg.cresolvedConstantsPath_PluginMessageIs + resolvedConstantsPath_PluginMessage);
+  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginMessageIs + resolvedConstantsPath_PluginMessage);
   // resolvedConstantsPath_PluginSystem
-  // console.log(plg_msg.cresolvedConstantsPath_PluginSystemIs + resolvedConstantsPath_PluginSystem);
+  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.cresolvedConstantsPath_PluginSystemIs + resolvedConstantsPath_PluginSystem);
 
   allPluginConstantsValidationData[sys.cConstantsValidationData][sys.cConstantsFilePaths][plg_sys.cpluginBusinessConstantsValidation] = resolvedConstantsPath_PluginBusiness;
   allPluginConstantsValidationData[sys.cConstantsValidationData][sys.cConstantsFilePaths][plg_sys.cpluginCommandConstantsValidation] = resolvedConstantsPath_PluginCommand;
@@ -138,8 +140,8 @@ async function initializeAllPluginConstantsValidationData(pluginConstantsPath) {
   allPluginConstantsValidationData[sys.cConstantsValidationData][sys.cConstantsPrefix][plg_sys.cpluginSystemConstantsValidation] = gen.cplg + bas.cUnderscore + gen.csys + bas.cDot;
 
   // allPluginConstantsValidationData is:
-  // console.log(plg_msg.callPluginConstantsValidationDataIs + JSON.stringify(allPluginConstantsValidationData));
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  await loggers.consoleLog(namespacePrefix + functionName, plg_msg.callPluginConstantsValidationDataIs + JSON.stringify(allPluginConstantsValidationData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return allPluginConstantsValidationData;
 }
 

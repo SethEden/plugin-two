@@ -4,6 +4,7 @@
  * @description Contains all of the functions necessary to bootStrap the business rules system for the plugin.
  * @requires module:rulesLibrary
  * @requires module:plugin.constants
+ * @requires module:loggers
  * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
@@ -15,6 +16,7 @@
 // Internal imports
 import rules from '../businessRules/rulesLibrary.js';
 import * as plg from '../constants/plugin.constants.js';
+import loggers from '../executrix/loggers.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
@@ -35,15 +37,15 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2023/01/13
  */
 async function bootStrapBusinessRules() {
-  // let functionName = bootStrapBusinessRules.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let functionName = bootStrapBusinessRules.name;
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
   returnData = await rules.initPluginRulesLibrary();
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
 export default {
   bootStrapBusinessRules
-}
+};

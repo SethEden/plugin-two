@@ -5,6 +5,7 @@
  * @requires module:commandBroker
  * @requires module:plugin.constants
  * @requires module:chiefData
+ * @requires module:loggers
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
@@ -16,6 +17,7 @@
 import commandBroker from '../brokers/commandBroker.js';
 import * as plg from '../constants/plugin.constants.js';
 import chiefData from './chiefData.js';
+import loggers from '../executrix/loggers.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
@@ -34,12 +36,12 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  * @date 2023/01/20
  */
 async function initCommands() {
-  // let functionName = initCommands.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  let functionName = initCommands.name;
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
   returnData = await commandBroker.bootStrapCommands();
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
@@ -52,13 +54,14 @@ async function initCommands() {
  * @date 2023/01/20
  */
 async function setupCommandAliases(pluginCommandAliasesPath) {
-  // let functionName = setupCommandAliases.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`pluginCommandAliasesPath is: ${pluginCommandAliasesPath}`);
+  let functionName = setupCommandAliases.name;
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // pluginCommandAliasesPath is:
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginCommandAliasesPathIs + pluginCommandAliasesPath);
   let returnData = {};
   returnData = await chiefData.loadCommandAliasesData(pluginCommandAliasesPath);
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
