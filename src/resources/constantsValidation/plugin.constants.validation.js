@@ -28,20 +28,23 @@ export const pluginConstantsValidation = [
   {Name: 'cConstantsPath', Actual: plg.cConstantsPath, Expected: 'constants/'},
   {Name: 'cConfigurationCommonPath', Actual: plg.cConfigurationCommonPath, Expected: 'configuration/'},
   {Name: 'cWorkflowsCommonPath', Actual: plg.cWorkflowsCommonPath, Expected: 'workflows/'},
+  {Name: 'cThemesCommonPath', Actual: plg.cThemesCommonPath, Expected: 'themes/'},
 
   // Full Dev paths
   {Name: 'cFullDevResourcesPath', Actual: plg.cFullDevResourcesPath, Expected: '/src/resources/'},
-  {Name: 'cFulDevCommandsPath', Actual: plg.cFullDevCommandsPath, Expected: '/src/resources/commands/'},
+  {Name: 'cFullDevCommandsPath', Actual: plg.cFullDevCommandsPath, Expected: '/src/resources/commands/'},
   {Name: 'cFullDevConstantsPath', Actual: plg.cFullDevConstantsPath, Expected: '/src/constants/'},
   {Name: 'cFullDevConfigurationPath', Actual: plg.cFullDevConfigurationPath, Expected: '/src/resources/configuration/'},
   {Name: 'cFullDevWorkflowsPath', Actual: plg.cFullDevWorkflowsPath, Expected: '/src/resources/workflows/'},
-  {Name: 'metaDataDevPath', Actual: plg.cmetaDataDevPath, Expected: '/src/resources/metaData.json'},
+  {Name: 'cFullDevThemesPath', Actual: plg.cFullDevThemesPath, Expected: '/src/resources/themes/'},
+  {Name: 'cmetaDataDevPath', Actual: plg.cmetaDataDevPath, Expected: '/src/resources/metaData.json'},
 
   // Full Prod paths
   {Name: 'cFullProdResourcesPath', Actual: plg.cFullProdResourcesPath, Expected: '/bin/resources/'},
   {Name: 'cFullProdCommandsPath', Actual: plg.cFullProdCommandsPath, Expected: '/bin/resources/commands/'},
   {Name: 'cFullProdConstantsPath', Actual: plg.cFullProdConstantsPath, Expected: '/bin/constants/'},
   {Name: 'cFullProdConfigurationPath', Actual: plg.cFullProdConfigurationPath, Expected: '/bin/resources/configuration/'},
-  {Name: 'cFullProdWorkflowsPath', Actual: plg.cFullProdWorkflowsPath, Expected: '/bin/resurces/workflows/'},
-  {Name: 'metaDataProdPath', Actual: plg.cmetaDataProdPath, Expected: '/bin/resources/metaData.json'}
+  {Name: 'cFullProdWorkflowsPath', Actual: plg.cFullProdWorkflowsPath, Expected: '/bin/resources/workflows/'},
+  {Name: 'cFullProdThemesPath', Actual: plg.cFullProdThemesPath, Expected: '/bin/resources/themes/'},
+  {Name: 'cmetaDataProdPath', Actual: plg.cmetaDataProdPath, Expected: '/bin/resources/metaData.json'}
 ];

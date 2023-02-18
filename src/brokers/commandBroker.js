@@ -4,6 +4,7 @@
  * @description Contains all of the functions necessary to bootStrap the commands for the plugin.
  * @requires module:commandLibrary
  * @requires module:plugin.constants
+ * @requires module:loggers
  * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
@@ -15,6 +16,7 @@
 // Internal imports
 import commands from '../commandsBlob/commandsLibrary.js';
 import * as plg from '../constants/plugin.constants.js';
+import loggers from '../executrix/loggers.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
@@ -36,11 +38,11 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
  */
 async function bootStrapCommands() {
   // let functionName = bootStrapCommands.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
-  returnData = await commands.initPluginCommandLibrary();
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  // console.log(`END ${namespacePrefix}${functionName} function`);
+  returnData = await commands.initPluginCommandsLibrary();
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

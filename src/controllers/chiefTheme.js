@@ -1,7 +1,7 @@
 /**
- * @file chiefConfiguration.js
- * @module chiefConfiguration
- * @description Contains all the functions to manage the configuration system,
+ * @file chiefTheme.js
+ * @module chiefTheme
+ * @description Contains all the functions to manage the theme system,
  * such as loading, setup, parsing & processing.
  * @requires module:plugin.constants
  * @requires module:chiefData
@@ -9,8 +9,7 @@
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
  * @requires {@link https://www.npmjs.com/package/path|path}
  * @author Seth Hollingsead
- * @date 2023/01/20
- * @copyright Copyright © 2022-… by Seth Hollingsead. All rights reserved
+ * @date 2023/02/06
  */
 
 // Internal imports
@@ -23,29 +22,29 @@ import path from 'path';
 
 const {bas, biz, cfg, msg, sys, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// plugins.plugin-two.controllers.chiefConfiguration.
+// plugin.plugin-two.controllers.chiefTheme.
 const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
 
 /**
- * @function setupConfiguration
- * @description Sets up all of the plugin configuration data.
- * @param {string} pluginConfigPath The path of the configuration files for the plugin layer.
+ * @function setupThemes
+ * @description Sets up all of the plugin themes data.
+ * @param {string} pluginThemesPath The path of the themes files for the plugin layer.
  * @return {object} A JSON object that contains all of the configuration data loaded and parsed from the specified path.
  * @author Seth Hollingsead
- * @date 2023/01/20
+ * @date 2023/02/06
  */
-async function setupConfiguration(pluginConfigPath) {
-  // let functionName = setupConfiguration.name;
+async function setupThemes(pluginThemesPath) {
+  // let functionName = setupThemes.name;
   // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
-  // pluginConfigPath is:
-  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginConfigPathIs + pluginConfigPath);
+  // pluginThemesPath is:
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginThemesPathIs + pluginThemesPath);
   let returnData = {};
-  returnData = await chiefData.loadConfigurationData(pluginConfigPath);
+  returnData = await chiefData.loadThemesData(pluginThemesPath);
   // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
   // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 
 export default {
-  setupConfiguration
+  setupThemes
 };

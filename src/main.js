@@ -5,7 +5,8 @@
  * It contains the entry point and all public functions for the plugin.
  * @requires module:plugin.constants
  * @requires module:warden
- * @requires module:allPluginConstantsValidationMetaData
+ * @requires module:allPluginConstantsValidationMetadata
+ * @requires module:loggers
  * @requires module:pluginData
  * @requires {@link https://www.npmjs.com/package/@haystacks/async|@haystacks/async}
  * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
@@ -21,6 +22,7 @@
 import * as plg from './constants/plugin.constants.js';
 import warden from './controllers/warden.js';
 import allPlgCV from './resources/constantsValidation/allPluginConstantsValidationMetadata.js';
+import loggers from './executrix/loggers.js';
 import D from './structures/pluginData.js';
 // External imports
 import haystacks from '@haystacks/async';
@@ -40,7 +42,7 @@ const {NODE_ENV} = process.env;
 // NOTE: Consider that in the plugin we have to have a Haystacks instance.
 // That Haystacks instance is needed so we can pass the paths to the configuration files that must be loaded and parsed.
 // The Haystacks has the code to do that loading and parsing so the intent is to let Haystacks do that work and pass back the data after it's been parsed.
-// Then let the plugin do final organization of that data and again pass it back to Haystacks so that the app using Haystacks can make calls to the plugin functions and all it's data.
+// Then let the plugin do final organization of that data and again pass it back to Haystacks so that the app using Haystacks can make calls to the plugin functions and all its data.
 // The trouble is the plugin instance of Haystacks doesn't have the context (data or otherwise) to do everything that the application Haystacks instance does.
 // The plugin Haystacks instance would again have to load all of the Haystacks configuration data, and meta-data and be completely bootstrapped yet again.
 // Doing this for each and every plugin is not a viable solution because of the performance loss.
@@ -49,7 +51,7 @@ const {NODE_ENV} = process.env;
 
 // #1: Add a data parameter to the function below: initializePlugin that allows for the application instance of Haystacks, when it calls this function to load this plugin,
 // and allow that instance of Haystacks to pass its data context to this plugin.
-// Then this plugin will store that data context in it's own (the plugins) data structure declared above as "D".
+// Then this plugin will store that data context in its own (the plugins) data structure declared above as "D".
 // Then once the plugin creates the new Haystacks instance, the data context stored on the plugins "D", can be passed back to the plugins instance of Haystacks.
 // This in theory should give the plugin instance of Haystacks the intelligence needed to act in exactly the same way that the application instance of Haystacks works.
 
@@ -88,16 +90,18 @@ const {NODE_ENV} = process.env;
  */
 async function initializePlugin(inputMetaData) {
   // let functionName = initializePlugin.name;
-  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
-  // console.log(`inputMetaData is: ` + JSON.stringify(inputMetaData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cinputMetaDataIs + JSON.stringify(inputMetaData));
   rootPath = url.fileURLToPath(path.dirname(import.meta.url));
   let rootPathArray = rootPath.split(bas.cBackSlash);
   rootPathArray.pop(); // remove any bin or src folder from the path.
   rootPath = rootPathArray.join(bas.cBackSlash);
-  // console.log('rootPath is: ' + rootPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.crootPathIs + rootPath);
+  let logFilePathAndName = await loggers.getLogFileNameAndPath(inputMetaData);
   let pluginConfig = {};
   if (NODE_ENV === wrd.cdevelopment) {
     pluginConfig = {
+      [cfg.cLogFilePathAndName]: logFilePathAndName,
       haystacksContextObject: inputMetaData,
       PluginName: plg.cpluginName,
       pluginRootPath: rootPath,
@@ -107,6 +111,7 @@ async function initializePlugin(inputMetaData) {
       pluginCommandAliasesPath: rootPath + plg.cFullDevCommandsPath,
       pluginConstantsPath: rootPath + plg.cFullDevConstantsPath,
       pluginWorkflowsPath: rootPath + plg.cFullDevWorkflowsPath,
+      pluginThemesPath: rootPath + plg.cFullDevThemesPath,
       pluginConstantsValidationData: await allPlgCV.initializeAllPluginConstantsValidationData(rootPath + plg.cFullDevConstantsPath),
       pluginBusinessRules: {},
       pluginCommands: {},
@@ -114,6 +119,7 @@ async function initializePlugin(inputMetaData) {
     }
   } else if (NODE_ENV === wrd.cproduction) {
     pluginConfig = {
+      [cfg.cLogFilePathAndName]: logFilePathAndName,
       haystacksContextObject: inputMetaData,
       PluginName: plg.cpluginName,
       pluginRootPath: rootPath,
@@ -123,6 +129,7 @@ async function initializePlugin(inputMetaData) {
       pluginCommandAliasesPath: rootPath + plg.cFullProdCommandsPath,
       pluginConstantsPath: rootPath + plg.cFullProdConstantsPath,
       pluginWorkflowsPath: rootPath + plg.cFullProdWorkflowsPath,
+      pluginThemesPath: rootPath + plg.cFullProdThemesPath,
       pluginConstantsValidationData: await allPlgCV.initializeAllPluginConstantsValidationData(rootPath + plg.cFullProdConstantsPath),
       pluginBusinessRules: {},
       pluginCommands: {},
@@ -132,6 +139,7 @@ async function initializePlugin(inputMetaData) {
     // WARNING: No .env file found! Going to default to the DEVELOPMENT ENVIRONMENT!
     console.log(msg.cApplicationWarningMessage1a + msg.cApplicationWarningMessage1b);
     pluginConfig = {
+      [cfg.cLogFilePathAndName]: logFilePathAndName,
       haystacksContextObject: inputMetaData,
       PluginName: plg.cpluginName,
       pluginRootPath: rootPath,
@@ -141,6 +149,7 @@ async function initializePlugin(inputMetaData) {
       pluginCommandAliasesPath: rootPath + plg.cFullDevCommandsPath,
       pluginConstantsPath: rootPath + plg.cFullDevConstantsPath,
       pluginWorkflowsPath: rootPath + plg.cFullDevWorkflowsPath,
+      pluginThemesPath: rootPath + plg.cFullDevThemesPath,
       pluginConstantsValidationData: await allPlgCV.initializeAllPluginConstantsValidationData(rootPath + plg.cFullDevConstantsPath),
       pluginBusinessRules: {},
       pluginCommands: {},
@@ -150,9 +159,10 @@ async function initializePlugin(inputMetaData) {
   pluginConfig[sys.cpluginBusinessRules] = await warden.initPluginRules();
   pluginConfig[sys.cpluginCommands] = await warden.initPluginCommands();
   await warden.initPluginSchema(pluginConfig);
+  D[wrd.cdata][cfg.chaystacksContextObject] = {};
   let returnData = D; // Export all of the plugin data.
-  // console.log(`returnData is: ${JSON.stringify(returnData)}`);
-  console.log(`END ${namespacePrefix}${functionName} function`);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
   return returnData;
 }
 

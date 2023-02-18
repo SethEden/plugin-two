@@ -25,10 +25,10 @@ export const pluginMessageConstantsValidation = [
   // Constants Validation
   {Name: 'callPluginConstantsValidationDataIs', Actual: plg_msg.callPluginConstantsValidationDataIs, Expected: 'allPluginConstantsValidationData is: '},
   {Name: 'cresolvedConstantsPath_PluginBusinessIs', Actual: plg_msg.cresolvedConstantsPath_PluginBusinessIs, Expected: 'resolvedConstantsPath_PluginBusiness is: '},
-  {Name: 'cresolvedConstantsPath_PluginCommandsIs', Actual: plg_msg.cresolvedConstantsPath_PluginCommandIs, Expected: 'resolvedConstantsPath_PluginCommand is: '},
-  {Name: 'cresolvedConstantsPath_PluginConstantsIs', Actual: plg_msg.cresolvedConstantsPath_PluginConstantIs, Expected: 'resolvedConstantsPath_PlugnConstant is: '},
+  {Name: 'cresolvedConstantsPath_PluginCommandIs', Actual: plg_msg.cresolvedConstantsPath_PluginCommandIs, Expected: 'resolvedConstantsPath_PluginCommand is: '},
+  {Name: 'cresolvedConstantsPath_PluginConstantIs', Actual: plg_msg.cresolvedConstantsPath_PluginConstantIs, Expected: 'resolvedConstantsPath_PluginConstant is: '},
   {Name: 'cresolvedConstantsPath_PluginMessageIs', Actual: plg_msg.cresolvedConstantsPath_PluginMessageIs, Expected: 'resolvedConstantsPath_PluginMessage is: '},
-  {Name: 'cresolvedConstantsPath_PluginSystemIs', Actual: plg_msg.cresolvedConstantsPath_PluginSystemIs, Expected: 'resolvedConstantsPath_PlugnSystem is: '},
+  {Name: 'cresolvedConstantsPath_PluginSystemIs', Actual: plg_msg.cresolvedConstantsPath_PluginSystemIs, Expected: 'resolvedConstantsPath_PluginSystem is: '},
 
   {Name: 'cPluginBusinessConstantsPhase1Validation', Actual: plg_msg.cPluginBusinessConstantsPhase1Validation, Expected: 'Plugin Business Constants Phase 1 Validation'},
   {Name: 'cPluginCommandConstantsPhase1Validation', Actual: plg_msg.cPluginCommandConstantsPhase1Validation, Expected: 'Plugin Command Constants Phase 1 Validation'},
